@@ -1,5 +1,9 @@
 package api
 
-type ApiResponse struct {
+type CommandResponse struct {
 	CommandResult []string `json:"command-result"`
+}
+
+type CommandErroResponse struct {
+	Error []string `json:"Error"`
 }

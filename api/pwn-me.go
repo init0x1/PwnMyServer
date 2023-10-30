@@ -10,7 +10,7 @@ import (
 
 const apiUrl = "https://pwn-me.onrender.com/os/terminal?command=%s"
 
-func Eval(command string) (*ApiResponse, error) {
+func Eval(command string) (*CommandResponse, error) {
 	//validate command
 	apiCommand := strings.ToLower(command)
 	if apiCommand == "" {
@@ -23,7 +23,7 @@ func Eval(command string) (*ApiResponse, error) {
 		return nil, fmt.Errorf("error making request: %w", err)
 	}
 	defer res.Body.Close()
-	var commandResult ApiResponse
+	var commandResult CommandResponse
 	if res.StatusCode == http.StatusOK {
 		bodyBytes, err := io.ReadAll(res.Body)
 		if err != nil {
