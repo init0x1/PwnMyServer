@@ -15,11 +15,16 @@ func main() {
 		return
 	}
 
-	apiRes, err := api.Eval(command)
+	apiRes, commandError, err := api.Eval(command)
 	if err != nil {
 		fmt.Printf("API request failed: %v\n", err)
 		return
 	}
+	if commandError != nil {
 
-	fmt.Println(apiRes.CommandResult)
+		fmt.Println(commandError.Error)
+
+	} else {
+		fmt.Println("Command result:", apiRes.CommandResult)
+	}
 }
