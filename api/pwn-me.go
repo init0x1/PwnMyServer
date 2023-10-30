@@ -10,7 +10,7 @@ import (
 
 const apiUrl = "https://pwn-me.onrender.com/os/terminal?command=%s"
 
-func eval(command string) (*ApiResponse, error) {
+func Eval(command string) (*ApiResponse, error) {
 	//validate command
 	apiCommand := strings.ToLower(command)
 	if apiCommand == "" {
